@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:if="${allBanks.size()!=0}" style="text-align: center">Saving Banks</h1>
+<!--<div style="display: flex;justify-content: center">-->
+    <!--<img th:src="@{img/sort_by_name.png}" alt="sort" style="padding: 20px">-->
+<!--</div>-->
+<table th:if="${allBanks.size()!=0}" style="border: 1px solid #cccccc; padding: 5px; margin: 0 auto">
+    <tr style="border: 1px solid #cccccc; padding: 7px">
+        <td style="border: 1px solid #cccccc; padding: 7px"><b>Name</b></td>
+        <td style="border: 1px solid #cccccc; padding: 7px"><b>Address</b></td>
+    </tr>
+    <tr th:each="bank:${allBanks}" style="border: 1px solid #cccccc; padding: 7px">
+        <td th:text="${bank.getName()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+        <td th:text="${bank.getAddress()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+    </tr>
+</table>
+
+<p style="padding: 10px; text-align: center; font-weight: bold">Add a bank</p>
+<form action="/save_bank" method="post" style="display: flex; flex-direction: column; align-items: center">
+    <input type="text" name="name" style="margin-top: 10px; margin-bottom: 10px" placeholder="Bank name">
+    <input type="text" name="address" style="margin-top: 10px; margin-bottom: 10px" placeholder="bank address">
+    <input type="submit" value="Add a bank">
+</form>
+<br>
+<br>
+<h2 style="display: flex; flex-direction: column; align-items: center">Select Bank for more information</h2>
+<form action="/find_bank_information" method="get" style="display: flex; flex-direction: column; align-items: center">
+    <select name="name">
+        <option th:each="bank:${allBanks}" th:value="${bank.getName()}" th:text="${bank.getName()}"></option>
+    </select>
+    <input type="submit" value="Search">
+</form>
+<br>
+<br>
+<a href="/" style="display: flex; justify-content: center"> Go to example`s list page</a>
+</body>
+</html>

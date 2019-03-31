@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Save Loan</title>
+</head>
+<body>
+<h1 th:if="${allClients.size()!=0}" style="text-align: center">Save Loan To Chosen Client</h1>
+
+<div style="display: flex;justify-content: center">
+    <img th:src="@{img/save_loans.png}" alt="loan" style="padding: 20px">
+</div>
+
+
+<p style="padding: 10px; text-align: center; font-weight: bold">Add a loan to client</p>
+<form action="/save_loan" method="post" style="display: flex; flex-direction: column; align-items: center">
+
+    <input type="text" name="amount" style="margin-top: 10px; margin-bottom: 10px" placeholder="Loan Amount">
+
+    <select name="loanType" style="margin-top: 10px; margin-bottom: 10px">
+        <option value="PERSONAL">Personal Loans</option>
+        <option value="AUTO">Loans for buying Auto</option>
+        <option value="HOME_EQUITY">Loans against home equity</option>
+        <option value="MORTGAGES">Loans for buying home</option>
+    </select>
+
+    <input type="text" name="percentage" style="margin-top: 10px; margin-bottom: 10px" placeholder="Loan Percentage">
+    <input type="text" name="duration" style="margin-top: 10px; margin-bottom: 10px" placeholder="Loan Duration">
+
+    <select name="client" style="margin-top: 10px; margin-bottom: 10px">
+        <option th:each="client:${allClients}" th:value="${client.getId()}" th:text="${client.getName()}"></option>
+    </select>
+
+    <input type="submit" value="Add Loan">
+</form>
+
+<br>
+<br>
+<br>
+<a href="/" style="display: flex; justify-content: center"> Go to example`s list page</a>
+</body>
+</html>

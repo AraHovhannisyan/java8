@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filters, Lambda, Convert Stream into List</title>
+</head>
+<body>
+<h1 style="text-align: center">Sorting Clients by Age using Lambdas in Java8
+</h1>
+
+<div style="display: flex; justify-content: center">
+    <img th:src="@{img/sort_by_age_lambda.png}" alt="convert" style="padding: 20px;">
+</div>
+
+<table style="border: 1px solid #cccccc; padding: 5px; margin: 0 auto">
+    <tr th:each="client:${allClients}" style="border: 1px solid #cccccc; padding: 7px">
+        <td th:text="${client.getName()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+        <td th:text="${client.getEmail()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+        <td th:text="${client.getAge()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+    </tr>
+</table>
+
+<br>
+<br>
+<br>
+<a href="/" style="display: flex; justify-content: center"> Go to example`s list page</a>
+
+</body>
+</html>

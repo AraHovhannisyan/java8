@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Save Loan</title>
+</head>
+<body>
+<h1 style="text-align: center">Save Loan To Chosen Client</h1>
+
+<div style="display: flex;justify-content: center">
+    <img th:src="@{img/find_any.png}" alt="any" style="padding: 20px">
+</div>
+
+
+<h2 style="padding: 10px; text-align: center; font-weight: bold">Bank Information</h2>
+
+<p style="padding: 10px; text-align: center; font-weight: bold" th:text="${bankInfo}"></p>
+
+
+<br>
+<br>
+<br>
+<a href="/" style="display: flex; justify-content: center"> Go to example`s list page</a>
+</body>
+</html>

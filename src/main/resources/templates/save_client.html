@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:if="${clients.size()!=0}" style="text-align: center">Clients ordered by name using Java 8</h1>
+<div style="display: flex;justify-content: center">
+    <img th:src="@{img/sort_by_name.png}" alt="sort" style="padding: 20px">
+</div>
+<table th:if="${clients.size()!=0}" style="border: 1px solid #cccccc; padding: 5px; margin: 0 auto">
+    <tr style="border: 1px solid #cccccc; padding: 7px">
+        <td style="border: 1px solid #cccccc; padding: 7px"><b>Name</b></td>
+        <td style="border: 1px solid #cccccc; padding: 7px"><b>Email</b></td>
+        <td style="border: 1px solid #cccccc; padding: 7px"><b>Age</b></td>
+    </tr>
+    <tr th:each="client:${clients}" style="border: 1px solid #cccccc; padding: 7px">
+        <td th:text="${client.getName()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+        <td th:text="${client.getEmail()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+        <td th:text="${client.getAge()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+    </tr>
+</table>
+
+<p style="padding: 10px; text-align: center; font-weight: bold">Add a client</p>
+<form action="/save_client" method="post" style="display: flex; flex-direction: column; align-items: center">
+    <input type="text" name="name" style="margin-top: 10px; margin-bottom: 10px" placeholder="Client name">
+    <input type="text" name="email" style="margin-top: 10px; margin-bottom: 10px" placeholder="Client email">
+    <input type="text" name="age" style="margin-top: 10px; margin-bottom: 10px" placeholder="Client Age">
+    <input type="submit" value="Add Client">
+</form>
+
+<br>
+<br>
+<br>
+<a href="/" style="display: flex; justify-content: center"> Go to example`s list page</a>
+</body>
+</html>
