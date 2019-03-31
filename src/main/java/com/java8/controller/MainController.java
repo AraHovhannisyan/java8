@@ -4,7 +4,6 @@ import com.java8.model.Bank;
 import com.java8.model.Client;
 import com.java8.model.Loan;
 import com.java8.service.ClientService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -87,7 +86,9 @@ public class MainController {
     @GetMapping("save_loan")
     public String saveLoan(ModelMap map) {
         List<Client> allClients = clientService.findAllClients();
+        List<Bank> allBanks = clientService.findAllBanks();
         map.addAttribute("allClients", allClients);
+        map.addAttribute("allBanks", allBanks);
         return "save_loan";
     }
 
