@@ -31,6 +31,10 @@
         <option th:each="client:${allClients}" th:value="${client.getId()}" th:text="${client.getName()}"></option>
     </select>
 
+    <select name="bank" style="margin-top: 10px; margin-bottom: 10px">
+        <option th:each="bank:${allBanks}" th:value="${bank.getId()}" th:text="${bank.getName()}"></option>
+    </select>
+
     <input type="submit" value="Add Loan">
 </form>
 
