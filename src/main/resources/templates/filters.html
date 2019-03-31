@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filters, Lambda, Convert Stream into List</title>
+</head>
+<body>
+<h1 style="text-align: center">Filters, Lambda, Convert a Stream into List</h1>
+
+<div style="display: flex; justify-content: center">
+    <img th:src="@{img/stream_filter.png}" alt="convert" style="padding: 20px;">
+</div>
+
+<table style="border: 1px solid #cccccc; padding: 5px; margin: 0 auto">
+    <tr th:each="filteredClient:${filteredClients}" style="border: 1px solid #cccccc; padding: 7px">
+        <td th:text="${filteredClient.getName()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+        <td th:text="${filteredClient.getEmail()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+        <td th:text="${filteredClient.getAge()}" style="border: 1px solid #cccccc; padding: 7px"></td>
+    </tr>
+</table>
+
+<br>
+<br>
+<br>
+<a href="/" style="display: flex; justify-content: center"> Go to example`s list page</a>
+
+</body>
+</html>
